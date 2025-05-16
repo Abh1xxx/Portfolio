@@ -1,8 +1,15 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { AppBar, Toolbar, Typography, Button, styled, Box, Avatar, Drawer, IconButton } from '@mui/material';
+import {
+    AppBar,
+    Toolbar,
+    Button,
+    styled,
+    Box,
+    Drawer,
+    IconButton
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import CodeIcon from '@mui/icons-material/Code';
 import { WhiteButton } from './buttons/WhiteNavButton';
 import { TransparentNavButton } from './buttons/TransparentNavButton';
 import { useState, useEffect } from 'react';
@@ -22,17 +29,14 @@ const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('');
 
-    // Handle scroll events for navbar appearance and active section
     useEffect(() => {
         const handleScroll = () => {
-            // Update navbar appearance on scroll
             const isScrolled = window.scrollY > 100;
             if (isScrolled !== scrolled) {
                 setScrolled(isScrolled);
             }
-            
-            // Update active section based on scroll position
-            const sections = ['about','projects', 'contact'];
+
+            const sections = ['about', 'projects', 'contact'];
             for (const section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
@@ -44,7 +48,7 @@ const Navbar = () => {
                 }
             }
         };
-        
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [scrolled]);
@@ -59,10 +63,15 @@ const Navbar = () => {
         { label: 'Contact', target: 'contact', isWhite: true },
     ];
 
-    // Enhanced TransparentNavButton with active state
+    const resumeItem = {
+        label: 'Resume',
+        href: '/ABHIRAM CV.pdf',
+        isDownload: true,
+    };
+
     const EnhancedTransparentNavButton = ({ target, label, onClick }) => {
         const isActive = activeSection === target;
-        
+
         return (
             <TransparentNavButton
                 Title={label}
@@ -93,8 +102,8 @@ const Navbar = () => {
     return (
         <StyledAppBar position="sticky" scrolled={scrolled}>
             <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap', gap: 2 }}>
-                <Box sx={{ 
-                    display: 'flex', 
+                <Box sx={{
+                    display: 'flex',
                     alignItems: 'center',
                     transition: 'transform 0.3s ease',
                     '&:hover': {
@@ -104,8 +113,8 @@ const Navbar = () => {
                     <img
                         src="/LogoWithName.png"
                         alt="Portfolio logo"
-                        style={{ 
-                            display: { xs: 'none', md: 'block' }, 
+                        style={{
+                            display: { xs: 'none', md: 'block' },
                             height: '100px',
                             transition: 'filter 0.3s ease',
                             filter: scrolled ? 'drop-shadow(0 0 5px rgba(156,131,255,0.5))' : 'none'
@@ -129,6 +138,34 @@ const Navbar = () => {
                             }}
                         />
                     ))}
+
+                    {/* Resume Button */}
+                    <Button
+                        href={resumeItem.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download={resumeItem.isDownload}
+                        variant="outlined"
+                        sx={{
+                            color: 'white',
+                            borderColor: 'white',
+                            textTransform: 'none',
+                            px: 2.5,
+                            py: 1,
+                            transition: 'all 0.3s ease',
+                            borderRadius: '20px',
+                            fontWeight: '500',
+                            '&:hover': {
+                                backgroundColor: 'white',
+                                color: 'black',
+                                transform: 'translateY(-2px)',
+                                boxShadow: '0 4px 8px rgba(255,255,255,0.1)',
+                            },
+                        }}
+                    >
+                        {resumeItem.label}
+                    </Button>
+
                     <WhiteButton
                         onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
                         Title="Contact"
@@ -181,7 +218,7 @@ const Navbar = () => {
                         mt: 4,
                         alignItems: 'center'
                     }}>
-                        {navItems.map((item) => (
+                        {navItems.map((item) =>
                             item.isWhite ? (
                                 <WhiteButton
                                     key={item.target}
@@ -190,8 +227,8 @@ const Navbar = () => {
                                         handleDrawerToggle();
                                         document.getElementById(item.target)?.scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    sx={{ 
-                                        width: '100%', 
+                                    sx={{
+                                        width: '100%',
                                         justifyContent: 'center',
                                         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                                         '&:hover': {
@@ -208,8 +245,8 @@ const Navbar = () => {
                                         handleDrawerToggle();
                                         document.getElementById(item.target)?.scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    sx={{ 
-                                        width: '100%', 
+                                    sx={{
+                                        width: '100%',
                                         justifyContent: 'center',
                                         position: 'relative',
                                         '&::after': {
@@ -231,7 +268,34 @@ const Navbar = () => {
                                     }}
                                 />
                             )
-                        ))}
+                        )}
+
+                        {/* Resume Button in Mobile Drawer */}
+                        <Button
+                            href={resumeItem.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            download={resumeItem.isDownload}
+                            fullWidth
+                            variant="outlined"
+                            sx={{
+                                color: 'white',
+                                borderColor: 'white',
+                                textTransform: 'none',
+                                justifyContent: 'center',
+                                transition: 'all 0.3s ease',
+                                borderRadius: '20px',
+                                fontWeight: '500',
+                                '&:hover': {
+                                    backgroundColor: 'white',
+                                    color: 'black',
+                                    transform: 'translateY(-2px)',
+                                    boxShadow: '0 4px 8px rgba(255,255,255,0.1)',
+                                },
+                            }}
+                        >
+                            {resumeItem.label}
+                        </Button>
                     </Box>
                 </Drawer>
             </Toolbar>

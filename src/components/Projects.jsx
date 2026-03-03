@@ -5,6 +5,8 @@ import fakestoreapi from "../assets/fakestoreapi.png";
 import WoodlandWebsiteClone from "../assets/WoodlandWebsiteClone.png";
 import { useMemo, useState } from "react";
 import cr7 from "../assets/cr7.jpg";
+// you can replace the placeholder URL or add a local asset for Dr. Clean and import it here
+// import drclean from "../assets/drclean.png";
 
 import { Helmet } from "react-helmet-async";
 
@@ -48,8 +50,15 @@ const Projects = () => {
         logo: cr7,
         url: "https://asgm12.netlify.app/",
       },
+      {
+        title: "Dr. Clean Facility Management System",
+        description:
+          "Dr. Clean is a full‑stack MERN application for managing facility services. Users can browse and request services while admins manage offerings through a secure dashboard.",
+        // replace with an imported asset or a URL once you have a logo image available
+        url: "https://dr-clean-app-x78g.vercel.app/admin",
+      },
     ],
-    []
+    [],
   );
 
   return (

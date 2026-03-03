@@ -65,7 +65,7 @@ const Navbar = () => {
 
     const resumeItem = {
         label: 'Resume',
-        href: '/ABHIRAM CV.pdf',
+        href: '/ABHI_MAIN.pdf',
         isDownload: true,
     };
 

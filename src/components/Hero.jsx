@@ -1,155 +1,135 @@
-import { Box, Typography, Container, Button } from '@mui/material';
-import { Helmet } from 'react-helmet-async';
+import { Box, Button, Chip, Stack, Typography } from "@mui/material";
+import { Helmet } from "react-helmet-async";
 import myProfile from "../assets/Me.png";
-import { theme } from '../theme';
-import { useState } from 'react';
 
-const Hero = () => {
-  const [isHovered, setIsHovered] = useState(false);
-
+function Hero() {
   return (
     <>
       <Helmet>
-        <title>Abhiram K Rajan | Full-Stack Developer & Web3 Explorer</title>
-        <meta name="description" content="Abhiram K Rajan is a Full-Stack Developer experienced in the MERN stack and passionate about blockchain and decentralized applications." />
-        <meta name="keywords" content="Abhiram K Rajan, MERN Developer, Full-stack developer, Blockchain, dApps, React, Node.js, MongoDB, Express, Web3" />
-        <meta name="author" content="Abhiram K Rajan" />
-        <meta property="og:title" content="Abhiram K Rajan | Full-Stack Developer & Web3 Explorer" />
-        <meta property="og:description" content="Building scalable full-stack apps and exploring the future with blockchain & dApps." />
+        <title>Abhiram K Rajan | Full-Stack Developer</title>
+        <meta
+          name="description"
+          content="Portfolio of Abhiram K Rajan, a full-stack developer building modern web apps with React, Node.js, and MongoDB."
+        />
       </Helmet>
-      <Container maxWidth="lg" id="home">
-        <header>
-          <Box
-            component="section"
+
+      <Box
+        id="home"
+        component="section"
+        sx={{
+          minHeight: { xs: "auto", md: "78vh" },
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "1.2fr 0.8fr" },
+          alignItems: "center",
+          gap: { xs: 4, md: 6 },
+          py: { xs: 6, md: 10 },
+        }}
+      >
+        <Box>
+          <Chip
+            label="Currently looking for internship and entry-level opportunities"
             sx={{
-              paddingTop: { xs: 4, md: 8 },
-              paddingBottom: { xs: 4, md: 0 },
-              minHeight: { xs: 'auto', md: '85vh' },
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              position: 'relative',
-              textAlign: 'center',
+              mb: 3,
+              borderRadius: "10px",
+              border: "1px solid rgba(45, 212, 191, 0.5)",
+              backgroundColor: "rgba(45, 212, 191, 0.1)",
+              color: "var(--text)",
+            }}
+          />
+
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: { xs: "2.2rem", md: "4.1rem" },
+              lineHeight: 1.05,
+              mb: 2,
             }}
           >
-            <Box sx={{ maxWidth: '600px', width: '90%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Box
-                component="img"
-                src={myProfile}
-                loading="lazy"
-                alt="Abhiram K Rajan - Full-Stack Developer"
-                sx={{
-                  width: { xs: 120, md: 150 },
-                  height: { xs: 120, md: 150 },
-                  borderRadius: '50%',
-                  mb: { xs: 2, md: 3 },
-                  mx: 'auto'
-                }}
-              />
-              <Typography
-                variant="h1"
-                sx={{
-                  ...theme.typography.h1,
-                  fontSize: { xs: '1.75rem', sm: '2.5rem', md: '4rem' },
-                  lineHeight: { xs: 1.1, sm: 1.2, md: 1.5 },
-                  paddingBottom: { xs: 0.75, md: 0 },
-                  mb: 0
-                }}
-              >
-                Abhiram K Rajan
-              </Typography>
+            Building sleek products with reliable code.
+          </Typography>
 
-              <Typography
-                variant="subtitle1"
-                sx={{
-                  fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
-                  mb: 1.5,
-                  mt: 0,
-                  opacity: 0.85
-                }}
-              >
-                Full-Stack Developer | MERN Stack | Web3 Enthusiast
-              </Typography>
+          <Typography
+            sx={{
+              fontSize: { xs: "1rem", md: "1.15rem" },
+              fontWeight: 600,
+              mb: 0.8,
+            }}
+          >
+            Software Developer | MERN Stack | Open to Internship Opportunities
+          </Typography>
+          <Typography sx={{ fontSize: { xs: "0.95rem", md: "1rem" }, color: "var(--muted)", mb: 2 }}>
+            Dubai, UAE | Student Visa (Available for Internship / Entry-Level Roles)
+          </Typography>
+          <Typography sx={{ fontSize: { xs: "1rem", md: "1.15rem" }, color: "var(--muted)", maxWidth: 700 }}>
+            I am Abhiram K Rajan, a full-stack developer focused on React and Node.js.
+            I design responsive interfaces, architect backend APIs, and ship production-ready features.
+            I am currently looking for internship and entry-level software developer roles.
+          </Typography>
 
-              <Typography
-                variant="h5"
-                gutterBottom
-                sx={{
-                  fontWeight: 'bold',
-                  fontFamily: 'Poppins',
-                  fontSize: { xs: '1.125rem', sm: '1.375rem', md: '1.714rem' },
-                  mb: { xs: 2, md: 3 },
-                  position: 'relative'
-                }}
-              >
-                <span
-                  style={{
-                    background: 'linear-gradient(131deg, rgba(156,131,255,1) 42%, rgba(224,240,16,0.94) 70%, rgba(255,144,81,1) 75%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    textShadow: isHovered ? '0 2px 5px rgba(156,131,255,0.4)' : '0 1px 3px rgba(156,131,255,0.25)',
-                    cursor: 'default',
-                    transition: 'text-shadow 0.3s ease, transform 0.2s ease',
-                    transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
-                    display: 'inline-block'
-                  }}
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  MERN Stack & Web3 Explorer
-                </span>
-                <span style={{
-                  transition: 'transform 0.2s ease',
-                  display: 'inline-block',
-                  marginLeft: '3px',
-                  transform: isHovered ? 'translateY(-4px) rotate(10deg)' : 'translateY(0) rotate(0deg)'
-                }}>
-                  🔥
-                </span>
-              </Typography>
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mt: 4 }}>
+            <Button
+              variant="contained"
+              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              sx={{
+                textTransform: "none",
+                px: 3.2,
+                py: 1.2,
+                borderRadius: "12px",
+                backgroundColor: "var(--accent)",
+                color: "#052023",
+                fontWeight: 700,
+                "&:hover": { backgroundColor: "#40e0cb" },
+              }}
+            >
+              See Projects
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              sx={{
+                textTransform: "none",
+                px: 3.2,
+                py: 1.2,
+                borderRadius: "12px",
+                borderColor: "var(--border)",
+                color: "var(--text)",
+                "&:hover": { borderColor: "var(--accent)" },
+              }}
+            >
+              Contact Me
+            </Button>
+          </Stack>
+        </Box>
 
-              <Typography
-                variant="body1"
-                sx={{
-                  maxWidth: 600,
-                  mb: 4,
-                  lineHeight: { xs: 1.8, md: 1.6 },
-                  px: { xs: 2, md: 0 }
-                }}
-              >
-                <strong>Hey there!</strong> I&apos;m <strong>Abhiram K Rajan</strong>, a passionate full-stack developer focused on crafting modern, scalable applications using <strong>React, Node.js, MongoDB</strong> and more.
-                <br /><br />
-                I’ve built projects like a <strong>Movie Rating & Review platform</strong> and a <strong>Woodland eCommerce website clone</strong> to master responsive UI and backend scalability. My curiosity also drives me to explore <strong>Web3, ChatGPT</strong>, and <strong>blockchain technologies</strong> to build the future of the web.
-                <br /><br />
-                Whether it’s a startup idea or an open-source collaboration — I’m always eager to learn, build, and solve real-world problems through code.
-              </Typography>
-
-              <Button
-                variant="contained"
-                size="large"
-                onClick={() => window.open('mailto:abhirammain01@example.com', '_blank')}              
-                sx={{
-                  borderRadius: 28,
-                  px: { xs: 4, md: 6 },
-                  py: { xs: 1, md: 1.5 },
-                  border: '1px solid #585858',
-                  backgroundColor: '#000000',
-                  color: '#ffffff',
-                  '&:hover': {
-                    backgroundColor: '#333333',
-                  },
-                  fontSize: { xs: '0.875rem', md: '1rem' },
-                }}
-              >
-                Contact Me
-              </Button>
-            </Box>
-          </Box>
-        </header>
-      </Container>
+        <Box
+          sx={{
+            justifySelf: { xs: "center", md: "end" },
+            width: { xs: 240, md: 320 },
+            height: { xs: 240, md: 320 },
+            borderRadius: "26px",
+            background:
+              "linear-gradient(145deg, rgba(45, 212, 191, 0.28), rgba(245, 158, 11, 0.16), rgba(13, 27, 45, 0.9))",
+            p: 1.2,
+            boxShadow: "0 22px 60px rgba(0, 0, 0, 0.35)",
+          }}
+        >
+          <Box
+            component="img"
+            src={myProfile}
+            alt="Portrait of Abhiram K Rajan"
+            loading="lazy"
+            sx={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              borderRadius: "22px",
+              border: "1px solid rgba(255, 255, 255, 0.16)",
+            }}
+          />
+        </Box>
+      </Box>
     </>
   );
-};
+}
 
 export default Hero;

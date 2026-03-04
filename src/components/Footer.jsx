@@ -1,82 +1,46 @@
-import { WhatsApp, GitHub, Email } from '@mui/icons-material';
-import { Box, Container, IconButton, Typography } from '@mui/material';
-import { Linkedin } from 'lucide-react';
-import { useState } from 'react';
+import { Email, GitHub, LinkedIn, WhatsApp } from "@mui/icons-material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
 
-const Footer = () => {
-  const [hoveredIcon, setHoveredIcon] = useState(null);
+const socialLinks = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/abhiram-k-rajan-2ba243244/", icon: LinkedIn },
+  { label: "GitHub", href: "https://github.com/Abh1xxx", icon: GitHub },
+  { label: "WhatsApp", href: "https://wa.me/916238033238", icon: WhatsApp },
+  { label: "Email", href: "mailto:abhirammain01@gmail.com", icon: Email },
+];
 
-  const socialLinks = [
-    {
-      label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/abhiram-k-rajan-2ba243244/',
-      icon: Linkedin,
-    },
-    {
-      label: 'GitHub',
-      href: 'https://github.com/Abh1xxx',
-      icon: GitHub,
-    },
-    {
-      label: 'WhatsApp',
-      href: 'https://wa.me/916238033238',
-      icon: WhatsApp,
-    },
-    {
-      label: 'Email',
-      href: 'mailto:abhirammain01@gmail.com',
-      icon: Email,
-    },
-  ];
-
+function Footer() {
   return (
-    <Container maxWidth="lg">
-      <Box
-        sx={{
-          paddingTop: 6,
-          paddingBottom: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          textAlign: 'center',
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            gap: 2,
-            mb: 3,
-          }}
-        >
-          {socialLinks.map((social, index) => (
+    <Box component="footer" sx={{ py: { xs: 4, md: 5 }, textAlign: "center" }}>
+      <Stack direction="row" spacing={1.2} justifyContent="center">
+        {socialLinks.map((item) => {
+          const Icon = item.icon;
+          return (
             <IconButton
-              key={social.label}
-              href={social.href}
+              key={item.label}
+              href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Connect with Abhiram K Rajan on ${social.label}`}
-              onMouseEnter={() => setHoveredIcon(index)}
-              onMouseLeave={() => setHoveredIcon(null)}
+              aria-label={item.label}
               sx={{
-                color: 'white',
-                transition: 'all 0.3s ease-in-out',
-                transform: hoveredIcon === index ? 'translateY(-4px)' : 'translateY(0)',
-                '&:hover': {
-                  color: 'white',
+                color: "var(--text)",
+                border: "1px solid var(--border)",
+                backgroundColor: "rgba(13, 27, 45, 0.5)",
+                "&:hover": {
+                  color: "var(--accent)",
+                  borderColor: "rgba(45, 212, 191, 0.55)",
                 },
               }}
             >
-              <social.icon size={20} />
+              <Icon fontSize="small" />
             </IconButton>
-          ))}
-        </Box>
-
-        <Typography variant="body2" sx={{ mt: 2, opacity: 0.7 }}>
-          &copy; {new Date().getFullYear()} Abhiram K Rajan
-        </Typography>
-      </Box>
-    </Container>
+          );
+        })}
+      </Stack>
+      <Typography sx={{ mt: 2, color: "var(--muted)", fontSize: "0.9rem" }}>
+        {new Date().getFullYear()} Abhiram K Rajan. Built with React and MUI.
+      </Typography>
+    </Box>
   );
-};
+}
 
 export default Footer;

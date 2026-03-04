@@ -1,132 +1,79 @@
-import { Box, Typography, Container, Button } from '@mui/material';
-import { Linkedin, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { LinkedIn, MailOutline } from "@mui/icons-material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 
-const Contact = () => {
-  const [isButtonHovered, setIsButtonHovered] = useState(false);
-
-  const handleContact = () => {
-    console.log('Contact clicked');
-    window.open(
-      'https://www.linkedin.com/in/abhiram-k-rajan-2ba243244/',
-      '_blank',
-      'noopener noreferrer'
-    );
-  };
-
+function Contact() {
   return (
-    <>
-      <Helmet>
-        <title>Abhiram K Rajan | Full-Stack Developer</title>
-        <meta
-          name="description"
-          content="Get in touch with Abhiram K Rajan, a passionate Full-Stack Developer experienced in building scalable applications with modern web technologies."
-        />
-      </Helmet>
-      <Container maxWidth="lg" id="contact">
-        <Box
-          sx={{
-            py: 3,
-            textAlign: 'center',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Typography
-            variant="h2"
-            component="h2"
-            gutterBottom
-            sx={{
-              fontWeight: 'bold',
-              background:
-                'linear-gradient(131deg, rgba(156,131,255,1) 42%, rgba(224,240,16,0.938813025210084) 70%, rgba(255,144,81,1) 75%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              textFillColor: 'transparent',
-              fontSize: { xs: '2rem', md: '3.5rem' },
-              mb: { xs: 0.5, md: 1 },
-            }}
-          >
-            Let&apos;s Connect
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            sx={{
-              mb: 6,
-              maxWidth: '600px',
-              opacity: 0.8,
-              fontSize: '1.1rem',
-              lineHeight: 1.8,
-            }}
-          >
-            Have a project in mind? Let's work together and build something
-            impactful!
-          </Typography>
+    <Box
+      id="contact"
+      component="section"
+      sx={{
+        py: { xs: 6, md: 8 },
+      }}
+    >
+      <Box
+        sx={{
+          border: "1px solid var(--border)",
+          borderRadius: "20px",
+          background:
+            "linear-gradient(135deg, rgba(45, 212, 191, 0.11), rgba(245, 158, 11, 0.12), rgba(13, 27, 45, 0.8))",
+          p: { xs: 2.6, md: 4 },
+          textAlign: "center",
+        }}
+      >
+        <Typography variant="h2" sx={{ fontSize: { xs: "1.8rem", md: "2.5rem" }, mb: 1.2 }}>
+          Let us build something strong.
+        </Typography>
+        <Typography sx={{ color: "var(--muted)", maxWidth: 680, mx: "auto", mb: 3 }}>
+          If you are hiring or planning a new product, I can help with full-stack development,
+          UI implementation, and shipping features from idea to production.
+        </Typography>
+        <Typography sx={{ color: "var(--muted)", mb: 0.6 }}>
+          India: +91 6238033238 | UAE: +971 568674373
+        </Typography>
+        <Typography sx={{ color: "var(--muted)", mb: 3 }}>
+          abhirammain01@gmail.com
+        </Typography>
 
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} justifyContent="center">
           <Button
-            onClick={handleContact}
+            href="mailto:abhirammain01@gmail.com"
+            startIcon={<MailOutline />}
             variant="contained"
-            size="large"
-            startIcon={
-              <Linkedin
-                size={20}
-                style={{ color: 'inherit', marginBottom: '7px' }}
-              />
-            }
-            endIcon={
-              <ArrowRight
-                size={20}
-                style={{
-                  transform: isButtonHovered ? 'translateX(4px)' : 'translateX(0)',
-                  transition: 'transform 0.3s ease',
-                }}
-              />
-            }
-            onMouseEnter={() => setIsButtonHovered(true)}
-            onMouseLeave={() => setIsButtonHovered(false)}
             sx={{
-              borderRadius: 28,
-              px: { xs: 3, md: 4 },
-              py: 1.5,
-              border: '1px solid #585858',
-              backgroundColor: '#000000',
-              color: '#ffffff',
-              fontSize: { xs: '0.875rem', md: '1rem' },
-              fontWeight: 500,
-              textTransform: 'none',
-              transition: 'all 0.3s ease-in-out',
-              position: 'relative',
-              overflow: 'hidden',
-              '&:hover': {
-                transform: 'translateY(-2px)',
-                boxShadow: '0 6px 20px rgba(255, 255, 255, 0.15)',
-              },
-              '&::after': {
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                background:
-                  'linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent)',
-                transform: 'translateX(-100%)',
-              },
-              '&:hover::after': {
-                transform: 'translateX(100%)',
-                transition: 'transform 0.6s ease-in-out',
-              },
+              textTransform: "none",
+              borderRadius: "12px",
+              px: 2.4,
+              py: 1.1,
+              backgroundColor: "var(--accent)",
+              color: "#022428",
+              fontWeight: 700,
+              "&:hover": { backgroundColor: "#40e0cb" },
             }}
           >
-            Contact Me
+            Email Me
           </Button>
-        </Box>
-      </Container>
-    </>
+          <Button
+            href="https://www.linkedin.com/in/abhiram-k-rajan-2ba243244/"
+            target="_blank"
+            rel="noopener noreferrer"
+            startIcon={<LinkedIn />}
+            variant="outlined"
+            sx={{
+              textTransform: "none",
+              borderRadius: "12px",
+              px: 2.4,
+              py: 1.1,
+              borderColor: "var(--border)",
+              color: "var(--text)",
+              "&:hover": { borderColor: "var(--accent)" },
+            }}
+          >
+            LinkedIn
+          </Button>
+        </Stack>
+      </Box>
+    </Box>
   );
-};
+}
 
 export default Contact;

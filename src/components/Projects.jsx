@@ -14,7 +14,8 @@ const projects = [
     description:
       "A full-stack MERN app where users browse and request facility services while admins manage operations with a secure dashboard.",
     image: drclean,
-    url: "https://dr-clean-app-x78g.vercel.app/",
+    // url: "https://dr-clean-app-x78g.vercel.app/",
+    url: "https://dr-clean-app.vercel.app/",
     fit: "contain",
   },
   {

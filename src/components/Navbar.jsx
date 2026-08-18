@@ -30,7 +30,7 @@ function Navbar() {
         ))}
         <a
           className="resume"
-          href="/ABHIRAM DM.pdf"
+          href="/Abhiram IT main.pdf"
           target="_blank"
           rel="noreferrer"
         >

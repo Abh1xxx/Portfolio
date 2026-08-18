@@ -1,73 +1,7 @@
-import { Box, Chip, Grid, Typography } from "@mui/material";
-
-const skillGroups = [
-  ["React.js", "HTML", "CSS", "JavaScript", "Tailwind CSS", "Bootstrap"],
-  ["MongoDB", "Express.js", "React.js", "Node.js", "RESTful APIs"],
-  ["MongoDB", "MySQL (Basics)", "Git", "GitHub", "Netlify", "Vercel"],
-  ["Problem-Solving", "Communication", "Adaptability", "Teamwork"],
-];
+const skillGroups = [["FRONTEND","React · JavaScript · HTML · CSS · Tailwind"],["BACKEND","Node.js · Express · REST APIs"],["DATABASE","MongoDB · MySQL"],["DATA + AI","Python · NumPy · Pandas · Matplotlib · ChatGPT · Gemini · Claude · Codex"]];
 
 function About() {
-  return (
-    <Box id="about" component="section" sx={{ py: { xs: 6, md: 8 } }}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6}>
-          <Typography
-            variant="h2"
-            sx={{ fontSize: { xs: "1.9rem", md: "2.7rem" }, lineHeight: 1.1, mb: 2 }}
-          >
-            Summary
-          </Typography>
-          <Typography sx={{ color: "var(--muted)", mb: 2, lineHeight: 1.7 }}>
-            Computer Science graduate currently pursuing a Postgraduate Program in Data Science in
-            Dubai. Experienced in building web applications using JavaScript, React.js, Node.js, and
-            MongoDB with a strong foundation in RESTful APIs and responsive UI development.
-          </Typography>
-          <Typography sx={{ color: "var(--muted)", mb: 2, lineHeight: 1.7 }}>
-            I am actively seeking internship and entry-level opportunities where I can apply my
-            technical skills and contribute to real-world projects.
-          </Typography>
-          <Typography sx={{ color: "var(--muted)", lineHeight: 1.7 }}>
-            My recent work includes a facility management platform, a movie review application, and
-            multiple e-commerce-style projects. I am also exploring Web3 concepts and AI-powered
-            features.
-          </Typography>
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              border: "1px solid var(--border)",
-              borderRadius: "18px",
-              background: "var(--surface)",
-              p: { xs: 2.5, md: 3 },
-              backdropFilter: "blur(6px)",
-            }}
-          >
-            <Typography sx={{ mb: 2, fontWeight: 600, fontSize: "1.1rem" }}>Skills</Typography>
-            <Box sx={{ display: "grid", gap: 1.3 }}>
-              {skillGroups.map((group, groupIndex) => (
-                <Box key={groupIndex} sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-                  {group.map((item) => (
-                    <Chip
-                      key={item}
-                      label={item}
-                      sx={{
-                        color: "var(--text)",
-                        border: "1px solid rgba(167, 184, 204, 0.3)",
-                        backgroundColor: "rgba(13, 27, 45, 0.65)",
-                        borderRadius: "10px",
-                      }}
-                    />
-                  ))}
-                </Box>
-              ))}
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-    </Box>
-  );
+  return <section id="about" className="section about"><div><p className="eyebrow">01 / ABOUT</p><h2 className="section-title">Engineering ideas into <em>useful systems.</em></h2><p className="lede">I’m a Computer Science graduate and postgraduate Data Science student at MAHE Dubai. I build full-stack products with thoughtful interfaces, reliable APIs, and a growing data-first mindset.</p><div className="ecosystem"><span>Python</span><span>React</span><span>Node.js</span><span>MongoDB</span><span>Data Science</span><span>AI</span></div></div><div id="skills" className="skill-grid">{skillGroups.map(([name,items],i)=><article className="skill-card" key={name}><b>0{i+1}</b><h3>{name}</h3><p>{items}</p><i /></article>)}</div></section>;
 }
 
 export default About;

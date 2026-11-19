@@ -1,0 +1,15 @@
+{
+  "name": "Abhiram K Rajan — Portfolio",
+  "short_name": "Abhiram",
+  "description": "Abhiram K Rajan, a software developer in Dubai building Python and MERN applications. Explore full-stack projects and NLP work with NLTK, scikit-learn and TF-IDF.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#07090f",
+  "theme_color": "#07090f",
+  "icons": [
+    {
+      "src": "/Logo.png",
+      "type": "image/png"
+    }
+  ]
+}

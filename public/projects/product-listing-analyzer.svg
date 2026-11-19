@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Product Listing Analyzer</title>
+  <desc id="desc">An educational NLP application: 500 product records, text preprocessing, TF-IDF keywords, attribute detection and explainable scores.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#142b42"/><stop offset="1" stop-color="#0a101e"/></linearGradient><linearGradient id="accent"><stop stop-color="#75eaff"/><stop offset="1" stop-color="#a18aff"/></linearGradient></defs>
+  <rect width="960" height="640" fill="url(#bg)"/>
+  <g stroke="#75eaff" opacity=".07"><path d="M0 80H960M0 160H960M0 240H960M0 320H960M0 400H960M0 480H960M0 560H960M80 0V640M160 0V640M240 0V640M320 0V640M400 0V640M480 0V640M560 0V640M640 0V640M720 0V640M800 0V640M880 0V640"/></g>
+  <rect x="76" y="66" width="98" height="38" rx="19" fill="#75eaff" fill-opacity=".1" stroke="#75eaff" stroke-opacity=".5"/>
+  <text x="125" y="91" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" letter-spacing="3" fill="#99edff">NLP</text>
+  <text x="76" y="181" font-family="Arial,sans-serif" font-size="54" font-weight="700" letter-spacing="-2" fill="#f2f5ff">Product Listing</text>
+  <text x="76" y="245" font-family="Arial,sans-serif" font-size="54" font-weight="700" letter-spacing="-2" fill="#a18aff">Analyzer.</text>
+  <text x="76" y="290" font-family="Arial,sans-serif" font-size="21" fill="#afc2d5">Turn product text into explainable insights.</text>
+  <rect x="76" y="336" width="808" height="166" rx="15" fill="#0a1220" stroke="#75eaff" stroke-opacity=".3"/>
+  <text x="104" y="372" font-family="Arial,sans-serif" font-size="13" letter-spacing="2" fill="#8aa7bf">TEXT ANALYSIS WORKFLOW</text>
+  <g font-family="Arial,sans-serif" font-size="16" fill="#d8f6ff" text-anchor="middle">
+    <rect x="104" y="398" width="198" height="65" rx="8" fill="#162b3e"/><text x="203" y="437">Clean &amp; tokenize</text>
+    <path d="M319 430H346M339 423L346 430L339 437" stroke="#75eaff" stroke-width="2" fill="none"/>
+    <rect x="364" y="398" width="200" height="65" rx="8" fill="#162b3e"/><text x="464" y="437">TF-IDF keywords</text>
+    <path d="M582 430H609M602 423L609 430L602 437" stroke="#75eaff" stroke-width="2" fill="none"/>
+    <rect x="628" y="398" width="228" height="65" rx="8" fill="#24243e"/><text x="742" y="437">Explainable score</text>
+  </g>
+  <rect x="76" y="541" width="4" height="24" fill="url(#accent)"/>
+  <text x="95" y="560" font-family="Arial,sans-serif" font-size="18" fill="#afc2d5">500-product corpus</text>
+  <text x="884" y="560" text-anchor="end" font-family="Arial,sans-serif" font-size="16" fill="#8aa7bf">Python · NLTK · scikit-learn</text>
+</svg>

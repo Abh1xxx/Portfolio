@@ -7,6 +7,25 @@ import todo from "../assets/todo.jpg";
 
 const projects = [
   {
+    name: "Product Listing Analyzer",
+    subtitle: "NLP · E-Commerce Text Analysis",
+    image: "/projects/product-listing-analyzer.svg",
+    imageAlt: "Product Listing Analyzer: text preprocessing, corpus TF-IDF keywords and explainable scoring",
+    url: "https://product-listing-analyzer.vercel.app/",
+    source: "https://github.com/Abh1xxx/product-listing-analyzer",
+    id: "product-listing-analyzer",
+    featured: true,
+    description: "An explainable NLP application for exploring e-commerce titles and descriptions, built around a 500-product corpus.",
+    stack: ["Python", "NLTK", "scikit-learn", "Pandas", "Streamlit", "Vercel"],
+    features: [
+      "Text cleaning, tokenization, stemming and lemmatization",
+      "Corpus-fitted TF-IDF keywords and cosine similarity",
+      "Dataset-backed attributes, word frequencies and n-grams",
+      "Transparent educational score with practical suggestions",
+    ],
+    note: "The demo may require Vercel sign-in. Source code is public.",
+  },
+  {
     name: "Dr. Clean",
     subtitle: "Full Stack Home Services Platform",
     image: drclean,
@@ -160,12 +179,16 @@ function Projects() {
 
       <p className="lede">
         A focused selection of real applications that explore full-stack
-        architecture, user flows, and clean interfaces.
+        architecture, practical NLP, user flows, and clean interfaces.
       </p>
 
       <div className="project-list">
         {projects.map((p, index) => (
-          <article className="project-card" key={p.name}>
+          <article
+            className={`project-card${p.featured ? " project-card-featured" : ""}`}
+            id={p.id}
+            key={p.name}
+          >
             
             {/* Project Number */}
             <div className="project-number">
@@ -173,10 +196,10 @@ function Projects() {
             </div>
 
             {/* Project Image */}
-            <div className="project-image">
+            <div className={`project-image${p.featured ? " project-image-analyzer" : ""}`}>
               <img
                 src={p.image}
-                alt={`${p.name} preview`}
+                alt={p.imageAlt || `${p.name} preview`}
                 loading="lazy"
               />
             </div>
@@ -189,6 +212,7 @@ function Projects() {
               </p>
 
               <h3>{p.name}</h3>
+              {p.description && <p className="project-description">{p.description}</p>}
 
               {/* Technology Stack */}
               <div className="tags">
@@ -209,6 +233,7 @@ function Projects() {
               </ul>
 
               {/* Project Link */}
+              <div className="project-actions">
               {p.url !== "#" ? (
                 <a
                   className="project-link"
@@ -220,9 +245,16 @@ function Projects() {
                 </a>
               ) : (
                 <span className="project-link project-coming-soon">
-                  Project link <b>↗</b>
+                  Demo unavailable
                 </span>
               )}
+              {p.source && (
+                <a className="project-link project-source" href={p.source} target="_blank" rel="noopener noreferrer" aria-label={`View ${p.name} source code on GitHub`}>
+                  Source code <b>↗</b>
+                </a>
+              )}
+              </div>
+              {p.note && <p className="project-note">{p.note}</p>}
 
             </div>
           </article>

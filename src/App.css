@@ -1073,3 +1073,62 @@ footer span {
     cursor: auto;
   }
 }
+
+/* Featured NLP project */
+.project-card-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.project-card-featured .project-image {
+  height: 100%;
+  min-height: 330px;
+}
+.project-card-featured .project-body {
+  padding: 32px;
+}
+.project-image-analyzer {
+  background: #0d1726;
+}
+.project-image-analyzer img {
+  padding: 0;
+}
+.project-description {
+  color: #a7b1c2;
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 0 0 20px;
+}
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+}
+.project-source {
+  color: #9fdded;
+}
+.project-note {
+  margin: 12px 0 0;
+  color: #8c9ab0;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.project-coming-soon {
+  color: #8c9ab0;
+}
+.project-link:focus-visible {
+  outline: 2px solid #75eaff;
+  outline-offset: 5px;
+}
+@media (max-width: 800px) {
+  .project-card-featured {
+    grid-template-columns: 1fr;
+  }
+  .project-card-featured .project-image {
+    min-height: 0;
+    height: 220px;
+  }
+  .project-card-featured .project-body {
+    padding: 23px;
+  }
+}
